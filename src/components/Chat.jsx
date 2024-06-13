@@ -27,7 +27,7 @@ const Chat = () => {
     }, []);
 
     const connectToWS = () => {
-        const socket = new WebSocket(`ws://${(import.meta.env.VITE_API_BASE_URL).toString().split("//")[1]}`);
+        const socket = new WebSocket(`${import.meta.env.VITE_SOCKET_PROTOCOL}://${(import.meta.env.VITE_API_BASE_URL).toString().split("//")[1]}`);
         setWs(socket);
         socket.addEventListener('message', handleMessage);
         socket.addEventListener('close', handleSocketClose);
